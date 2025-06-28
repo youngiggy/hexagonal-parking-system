@@ -11,3 +11,6 @@ include("car:adapter-rest")
 
 // ParkingLot 도메인 모듈
 include("parking-lot:application:domain")
+
+// ParkingLot JPA 어댑터
+include("parking-lot-adapter-jpa")
