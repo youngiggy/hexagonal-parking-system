@@ -1,10 +1,11 @@
 # 헥사고날 주차장 관리 시스템 (Hexagonal Parking System)
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/hexagonal-parking/hexagonal-parking-system)
-[![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen)](https://github.com/hexagonal-parking/hexagonal-parking-system)
-[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![CI/CD](https://github.com/youngiggy/hexagonal-parking-system/actions/workflows/ci.yml/badge.svg)](https://github.com/youngiggy/hexagonal-parking-system/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Kotlin](https://img.shields.io/badge/kotlin-2.0.0-purple)](https://kotlinlang.org/)
 [![Spring Boot](https://img.shields.io/badge/spring%20boot-3.5.3-green)](https://spring.io/projects/spring-boot)
+[![GitHub stars](https://img.shields.io/github/stars/youngiggy/hexagonal-parking-system.svg)](https://github.com/youngiggy/hexagonal-parking-system/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/youngiggy/hexagonal-parking-system.svg)](https://github.com/youngiggy/hexagonal-parking-system/issues)
 
 헥사고날 아키텍처 패턴을 적용하여 TDD 방법론으로 개발된 주차장 관리 시스템입니다.
 
@@ -120,7 +121,7 @@
 
 1. **저장소 클론**
    ```bash
-   git clone https://github.com/hexagonal-parking/hexagonal-parking-system.git
+   git clone https://github.com/youngiggy/hexagonal-parking-system.git
    cd hexagonal-parking-system
    ```
 
