@@ -10,6 +10,6 @@ dependencies {
     implementation(project(":car:application:port-in"))
     implementation(project(":car:application:port-out"))
     
-    implementation("org.springframework:spring-context")
-    implementation("org.springframework:spring-tx")
+    implementation("org.springframework:spring-context:6.1.14")
+    implementation("org.springframework:spring-tx:6.1.14")
 }
