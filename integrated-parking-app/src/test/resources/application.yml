@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testparkingdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+  
+  h2:
+    console:
+      enabled: false
+
+logging:
+  level:
+    com.example.hexagonal: INFO
+    org.springframework.web: WARN
+    org.hibernate: WARN
