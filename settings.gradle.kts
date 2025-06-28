@@ -11,12 +11,3 @@ include("car:adapter-rest")
 
 // ParkingLot 도메인 모듈
 include("parking-lot:application:domain")
-include("parking-lot:application:port-in")
-include("parking-lot:application:service")
-include("parking-lot:adapter-rest")
-include("parking-lot:adapter-cron")
-
-// 애플리케이션 모듈
-include("application-api")
-include("application-cron")
-include("bootstrap")
