@@ -567,8 +567,8 @@ volumes:
 
 ```bash
 # 1. 저장소 포크 및 클론
-git clone https://github.com/your-username/hexa-example.git
-cd hexa-example
+git clone https://github.com/your-username/hexagonal-parking-system.git
+cd hexagonal-parking-system
 
 # 2. 개발 브랜치 생성
 git checkout -b feature/exception-handling-improvement

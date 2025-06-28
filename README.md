@@ -1,7 +1,7 @@
-# 헥사고날 주차장 관리 시스템
+# 헥사고날 주차장 관리 시스템 (Hexagonal Parking System)
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/hexagonal-parking/parking-system)
-[![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen)](https://github.com/hexagonal-parking/parking-system)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/hexagonal-parking/hexagonal-parking-system)
+[![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen)](https://github.com/hexagonal-parking/hexagonal-parking-system)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Kotlin](https://img.shields.io/badge/kotlin-2.0.0-purple)](https://kotlinlang.org/)
 [![Spring Boot](https://img.shields.io/badge/spring%20boot-3.5.3-green)](https://spring.io/projects/spring-boot)
@@ -120,8 +120,8 @@
 
 1. **저장소 클론**
    ```bash
-   git clone https://github.com/hexagonal-parking/parking-system.git
-   cd parking-system
+   git clone https://github.com/hexagonal-parking/hexagonal-parking-system.git
+   cd hexagonal-parking-system
    ```
 
 2. **프로젝트 빌드**
@@ -214,7 +214,7 @@ GET /api/integrated/parking-lots/{parkingLotName}/registered-cars
 ## 📁 프로젝트 구조
 
 ```
-hexa-example/
+hexagonal-parking-system/
 ├── car/                           # Car 도메인
 │   ├── application/
 │   │   ├── domain/               # 도메인 모델

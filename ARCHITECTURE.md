@@ -88,7 +88,7 @@
 ## 모듈 구조
 
 ```
-hexa-example/
+hexagonal-parking-system/
 ├── car/                           # Car 도메인
 │   ├── application/
 │   │   ├── domain/               # ✅ 도메인 모델

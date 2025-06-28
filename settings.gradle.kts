@@ -1,4 +1,4 @@
-rootProject.name = "hexa-example"
+rootProject.name = "hexagonal-parking-system"
 
 // Car 도메인 모듈
 include("car:application:domain")
