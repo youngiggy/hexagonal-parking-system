@@ -21,3 +21,4 @@ include("parking-lot-adapter-integration-test")
 
 // 통합 애플리케이션
 include("integrated-parking-app")
+include("integration-test")
