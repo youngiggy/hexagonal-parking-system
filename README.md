@@ -233,6 +233,7 @@ hexa-example/
 ├── integration-test/              # 통합 테스트
 ├── ARCHITECTURE.md               # 아키텍처 문서
 ├── TDD-Work-Plan.md             # TDD 작업 계획
+├── IMPROVEMENT-ROADMAP.md        # 개선 로드맵
 └── README.md                    # 프로젝트 문서
 ```
 
@@ -250,30 +251,6 @@ hexa-example/
 
 자세한 개발 과정은 [TDD-Work-Plan.md](TDD-Work-Plan.md)와 [ARCHITECTURE.md](ARCHITECTURE.md)를 참조하세요.
 
-## 🤝 기여하기
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### 개발 가이드라인
-
-- **TDD**: 모든 새로운 기능은 테스트 먼저 작성
-- **헥사고날 아키텍처**: 도메인과 인프라의 분리 유지
-- **코드 스타일**: Kotlin 공식 코딩 컨벤션 준수
-- **커밋 메시지**: Conventional Commits 형식 사용
-
 ## 📄 라이선스
 
 이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
-
-## 📞 연락처
-
-- 프로젝트 링크: [https://github.com/hexagonal-parking/parking-system](https://github.com/hexagonal-parking/parking-system)
-- 이슈 리포트: [https://github.com/hexagonal-parking/parking-system/issues](https://github.com/hexagonal-parking/parking-system/issues)
-
----
-
-**헥사고날 주차장 관리 시스템**으로 깔끔한 아키텍처와 TDD의 힘을 경험해보세요! 🚗🏢
