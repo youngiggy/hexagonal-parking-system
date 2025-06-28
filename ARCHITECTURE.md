@@ -72,6 +72,7 @@
 - `ParkingRecord`: 주차 기록 도메인 모델
 - `ParkingStatus`: 주차 상태 열거형
 - `ParkingLotService`: 비즈니스 로직 구현
+- **참고**: ParkingLot은 현재 단순한 구조 (domain만 존재)
 
 #### Phase 7: ParkingLot 어댑터 구현
 - `ParkingLotJpaAdapter`: JPA 어댑터 구현
@@ -96,19 +97,16 @@ hexagonal-parking-system/
 │   │   ├── port-in/              # ✅ 인바운드 포트
 │   │   ├── port-out/             # ✅ 아웃바운드 포트
 │   │   └── service/              # ✅ 애플리케이션 서비스
-├── car-adapter-jpa/              # ✅ Car JPA 어댑터
-├── car-adapter-rest/             # ✅ Car REST 어댑터
-├── parking-lot/                   # ✅ ParkingLot 도메인
-│   ├── application/
-│   │   ├── domain/               # ✅ 도메인 모델
-│   │   ├── exception/            # ✅ 도메인 예외
-│   │   ├── port-in/              # ✅ 인바운드 포트
-│   │   ├── port-out/             # ✅ 아웃바운드 포트
-│   │   └── service/              # ✅ 애플리케이션 서비스
+│   ├── adapter-jpa/              # ✅ JPA 어댑터
+│   └── adapter-rest/             # ✅ REST 어댑터
+├── parking-lot/                   # ParkingLot 도메인
+│   └── application/
+│       └── domain/               # ✅ 도메인 모델
 ├── parking-lot-adapter-jpa/      # ✅ ParkingLot JPA 어댑터
 ├── parking-lot-adapter-rest/     # ✅ ParkingLot REST 어댑터
 ├── parking-lot-adapter-integration-test/ # ✅ 통합 테스트
 ├── integrated-parking-app/       # ✅ 통합 애플리케이션
+├── integration-test/              # ✅ 통합 테스트
 ├── application-api/               # ⏳ API 애플리케이션 (예정)
 ├── application-cron/              # ⏳ Cron 애플리케이션 (예정)
 └── bootstrap/                     # ⏳ 부트스트랩 (예정)
