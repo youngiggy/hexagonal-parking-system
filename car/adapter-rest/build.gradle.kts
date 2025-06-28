@@ -6,6 +6,7 @@ plugins {
 
 dependencies {
     implementation(project(":car:application:domain"))
+    implementation(project(":car:application:exception"))
     implementation(project(":car:application:port-in"))
     
     implementation("org.springframework.boot:spring-boot-starter-web:3.5.3")
