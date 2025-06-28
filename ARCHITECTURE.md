@@ -90,7 +90,7 @@ hexa-example/
 
 ## 아키텍처 다이어그램
 
-### 현재 구현된 Car 도메인 아키텍처 (Phase 5 완료)
+### 현재 구현된 Car & ParkingLot 도메인 아키텍처 (Phase 6 완료)
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -103,30 +103,33 @@ hexa-example/
 │         │                                    ▲           │
 │         ▼                                    │           │
 │  ┌─────────────┐                    ┌─────────────┐      │
-│  │CarRestApi   │                    │CarJpaAdapter│      │
+│  │Car/Parking  │                    │Car/Parking  │      │
+│  │RestApi      │                    │JpaAdapter   │      │
 │  │(Adapter)    │                    │(Adapter)    │      │
 │  │     ✅      │                    │     ✅      │      │
 │  └─────────────┘                    └─────────────┘      │
 │         │                                    ▲           │
 │         ▼                                    │           │
 │  ┌─────────────┐                    ┌─────────────┐      │
-│  │CarQuery/    │                    │CarLoad/     │      │
-│  │CommandUseCase│                   │SavePort     │      │
+│  │Car/Parking  │                    │Car/Parking  │      │
+│  │Query/Command│                    │Load/Save    │      │
+│  │UseCase      │                    │Port         │      │
 │  │(Port-In)    │                    │(Port-Out)   │      │
 │  │     ✅      │                    │     ✅      │      │
 │  └─────────────┘                    └─────────────┘      │
 │         │                                    ▲           │
 │         ▼                                    │           │
 │  ┌─────────────────────────────────────────────────────┐ │
-│  │                CarService                           │ │
-│  │            (Application Service)                    │ │
+│  │          Car/ParkingLot Services                    │ │
+│  │         (Application Services)                      │ │
 │  │                    ✅                              │ │
 │  └─────────────────────────────────────────────────────┘ │
 │                           │                             │
 │                           ▼                             │
 │  ┌─────────────────────────────────────────────────────┐ │
-│  │              Car Domain Models                      │ │
-│  │  LicensePlateNumber, CarEntity, CarNotFoundException│ │
+│  │        Car & ParkingLot Domain Models               │ │
+│  │  Car: LicensePlateNumber, CarEntity                 │ │
+│  │  ParkingLot: ParkingLot, ParkingRecord, Status     │ │
 │  │                    ✅                              │ │
 │  └─────────────────────────────────────────────────────┘ │
 │                                                         │
@@ -161,7 +164,7 @@ hexa-example/
 | Phase 3 | ✅ | Car 서비스 구현 | ✅ | `f64994e` |
 | Phase 4 | ✅ | Car JPA 어댑터 | ✅ | `5215c19`, `9a0cd9c`, `4f44d61` |
 | Phase 5 | ✅ | Car REST 어댑터 | ✅ | `56aab49`, `9428422` |
-| Phase 6 | ⏳ | ParkingLot 도메인 | ⏳ | - |
+| Phase 6 | ✅ | ParkingLot 도메인 | ✅ | `026f92c`, `b7bcff3`, `8c2886b` |
 | Phase 7 | ⏳ | ParkingLot 서비스 | ⏳ | - |
 | Phase 8 | ⏳ | 애플리케이션 통합 | ⏳ | - |
 | Phase 9 | ⏳ | 통합 테스트 | ⏳ | - |
