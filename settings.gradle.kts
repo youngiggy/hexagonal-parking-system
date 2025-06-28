@@ -15,3 +15,6 @@ include("parking-lot:application:domain")
 // ParkingLot 어댑터
 include("parking-lot-adapter-jpa")
 include("parking-lot-adapter-rest")
+
+// 통합 테스트
+include("parking-lot-adapter-integration-test")
