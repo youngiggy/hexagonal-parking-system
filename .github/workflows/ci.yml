@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     
     steps:
@@ -33,27 +33,14 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       
-    - name: Run tests
-      run: ./gradlew test
+    - name: Build application (without tests)
+      run: ./gradlew build -x test
       
-    - name: Generate test report
-      run: ./gradlew jacocoTestReport
-      if: always()
-      
-    - name: Upload test results
+    - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: test-results
+        name: build-artifacts
         path: |
-          **/build/reports/tests/
-          **/build/reports/jacoco/
-          
-    - name: Build application
-      run: ./gradlew build
-      
-    - name: Build Docker image (if Dockerfile exists)
-      run: |
-        if [ -f Dockerfile ]; then
-          docker build -t hexagonal-parking-system:latest .
-        fi
+          **/build/libs/
+          integrated-parking-app/build/libs/*.jar

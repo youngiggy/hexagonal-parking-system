@@ -20,8 +20,8 @@ class CarRestApiTest : StringSpec({
         val api = CarRestApi(mockQueryUseCase, mockCommandUseCase)
         
         val requestDtos = listOf(
-            CarRequestDto(licensePlateNumber = "123가1234"),
-            CarRequestDto(licensePlateNumber = "456나5678")
+            CarRequestDto(licensePlateNumber = "서울 123 가 1234"),
+            CarRequestDto(licensePlateNumber = "부산 456 나 5678")
         )
         
         val savedCars = requestDtos.map { dto ->
@@ -81,7 +81,7 @@ class CarRestApiTest : StringSpec({
         api.shouldBeInstanceOf<CarRestApi>()
         
         // 실제로 주입된 UseCase들이 사용되는지 확인
-        val requestDto = CarRequestDto(licensePlateNumber = "111가1111")
+        val requestDto = CarRequestDto(licensePlateNumber = "서울 111 가 1111")
         api.bulkCreateCars(listOf(requestDto))
         
         verify { commandUseCase.bulkCreateCar(any()) }
@@ -93,7 +93,7 @@ class CarRestApiTest : StringSpec({
         val mockCommandUseCase = mockk<CarCommandUseCase>()
         val api = CarRestApi(mockQueryUseCase, mockCommandUseCase)
         
-        val licensePlateNumber = "222가2222"
+        val licensePlateNumber = "서울 222 가 2222"
         val requestDto = CarRequestDto(licensePlateNumber = licensePlateNumber)
         val carModel = CarEntity(
             licencePlateNumber = LicensePlateNumber(licensePlateNumber),
@@ -126,7 +126,7 @@ class CarRestApiTest : StringSpec({
         api.shouldBeInstanceOf<CarRestApi>()
         
         // 도메인 로직은 UseCase에 위임
-        val licensePlateNumber = "333가3333"
+        val licensePlateNumber = "서울 333 가 3333"
         val requestDto = CarRequestDto(licensePlateNumber = licensePlateNumber)
         
         api.bulkCreateCars(listOf(requestDto))
@@ -140,15 +140,17 @@ class CarRestApiTest : StringSpec({
         val mockCommandUseCase = mockk<CarCommandUseCase>()
         val api = CarRestApi(mockQueryUseCase, mockCommandUseCase)
         
-        val licensePlateNumber = "789다7890"
+        val licensePlateNumber = "서울 789 다 7890"
+        val licensePlate = LicensePlateNumber(licensePlateNumber)
         val carModel = CarEntity(
-            licencePlateNumber = LicensePlateNumber(licensePlateNumber),
+            licencePlateNumber = licensePlate,
             identity = CarKey(UUID.randomUUID()),
             createdAt = Instant.now(),
             updatedAt = Instant.now()
         )
         
-        every { mockQueryUseCase.getByLicensePlateNumber(any()) } returns carModel
+        // 구체적인 LicensePlateNumber 객체로 매칭
+        every { mockQueryUseCase.getByLicensePlateNumber(licensePlate) } returns carModel
         
         // when
         val response = api.getCarByLicensePlateNumber(licensePlateNumber)
@@ -158,7 +160,7 @@ class CarRestApiTest : StringSpec({
         response.body shouldNotBe null
         response.body!!.licensePlateNumber shouldBe licensePlateNumber
         response.body!!.id shouldBe carModel.identity.value
-        verify(exactly = 1) { mockQueryUseCase.getByLicensePlateNumber(any()) }
+        verify(exactly = 1) { mockQueryUseCase.getByLicensePlateNumber(licensePlate) }
     }
     
     "CarRestApi는 존재하지 않는 차량 조회시 404를 반환한다" {
@@ -167,9 +169,11 @@ class CarRestApiTest : StringSpec({
         val mockCommandUseCase = mockk<CarCommandUseCase>()
         val api = CarRestApi(mockQueryUseCase, mockCommandUseCase)
         
-        val licensePlateNumber = "999가9999"
+        val licensePlateNumber = "서울 999 가 9999"
+        val licensePlate = LicensePlateNumber(licensePlateNumber)
         
-        every { mockQueryUseCase.getByLicensePlateNumber(any()) } throws CarNotFoundException("등록되지 않은 자동차입니다")
+        // 구체적인 LicensePlateNumber 객체로 매칭
+        every { mockQueryUseCase.getByLicensePlateNumber(licensePlate) } throws CarNotFoundException("등록되지 않은 자동차입니다")
         
         // when
         val response = api.getCarByLicensePlateNumber(licensePlateNumber)
@@ -177,7 +181,7 @@ class CarRestApiTest : StringSpec({
         // then
         response.statusCode shouldBe HttpStatus.NOT_FOUND
         response.body shouldBe null
-        verify(exactly = 1) { mockQueryUseCase.getByLicensePlateNumber(any()) }
+        verify(exactly = 1) { mockQueryUseCase.getByLicensePlateNumber(licensePlate) }
     }
     
     "CarRestApi는 잘못된 번호판 형식에 대해 400을 반환한다" {
@@ -202,22 +206,23 @@ class CarRestApiTest : StringSpec({
         val mockCommandUseCase = mockk<CarCommandUseCase>()
         val api = CarRestApi(mockQueryUseCase, mockCommandUseCase)
         
-        val requestDto = CarRequestDto(licensePlateNumber = "111가1111")
+        val requestDto = CarRequestDto(licensePlateNumber = "서울 111 가 1111")
+        val licensePlate = LicensePlateNumber(requestDto.licensePlateNumber)
         val savedCar = CarEntity(
-            licencePlateNumber = LicensePlateNumber(requestDto.licensePlateNumber),
+            licencePlateNumber = licensePlate,
             identity = CarKey(UUID.randomUUID()),
             createdAt = Instant.now(),
             updatedAt = Instant.now()
         )
         
         every { mockCommandUseCase.bulkCreateCar(any()) } returns listOf(savedCar)
-        every { mockQueryUseCase.getByLicensePlateNumber(any()) } returns savedCar
+        every { mockQueryUseCase.getByLicensePlateNumber(licensePlate) } returns savedCar
         
         // when & then
         val createResponse = api.bulkCreateCars(listOf(requestDto))
         createResponse.statusCode shouldBe HttpStatus.CREATED
         
-        val getResponse = api.getCarByLicensePlateNumber("111가1111")
+        val getResponse = api.getCarByLicensePlateNumber("서울 111 가 1111")
         getResponse.statusCode shouldBe HttpStatus.OK
     }
 })
