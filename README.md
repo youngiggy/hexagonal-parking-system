@@ -20,7 +20,8 @@
 - [테스트](#테스트)
 - [프로젝트 구조](#프로젝트-구조)
 - [개발 과정](#개발-과정)
-- [기여하기](#기여하기)
+- [감사의 말](#감사의-말)
+- [라이선스](#라이선스)
 
 ## 🎯 개요
 
@@ -251,6 +252,10 @@ hexagonal-parking-system/
 - **Phase 9**: 통합 테스트 및 문서화
 
 자세한 개발 과정은 [TDD-Work-Plan.md](TDD-Work-Plan.md)와 [ARCHITECTURE.md](ARCHITECTURE.md)를 참조하세요.
+
+## 🙏 감사의 말
+
+이 프로젝트는 [appkr의 hexagonal-example](https://github.com/appkr/hexagonal-example/tree/master/kotlin) 프로젝트에 큰 영감을 받았습니다. 해당 프로젝트의 아키텍처 설계와 구현 방식을 참고하여 동일한 유스케이스를 제공하려 노력했습니다. 훌륭한 예제를 공유해주신 appkr님께 깊은 감사를 표합니다.
 
 ## 📄 라이선스
 
